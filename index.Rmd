@@ -1,0 +1,26 @@
+---
+title: "RMarkdown with Leaflet"
+author: "Huchzi"
+date: "27 5 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(leaflet)
+```
+
+## Map
+
+This documents shows a map with seven coordinates on three continents. A secret society of mathematicians may or may not have hidden clues leading to a treasure there...
+
+```{r map}
+fibs <- c(13, 21, 34, 55, 89, 144, 233)
+prime <- c(13, 17, 19, 23, 29, 31, 37)
+
+data.frame(lat = prime, lng = fibs) %>%
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers()
+```
